@@ -116,7 +116,6 @@ body {
       transition: transform .3s ease;
     }
     
-    
     nav ul li a:hover::before {
       transform: scaleX(1);
       transform-origin: bottom left;
@@ -150,7 +149,6 @@ body {
       background: linear-gradient(136deg, rgb(31, 44, 116) 0%, rgb(169, 123, 241) 52%, rgb(75, 17, 102));
     }
   
-    
     .stb_line_single {
       position: relative;
       white-space: nowrap;
@@ -170,7 +168,6 @@ body {
       -webkit-text-stroke: 1px rgb(47, 15, 88);
       color: transparent;
     }
-    
     
     section#mis-proyectos {
       margin-top: 0px;
@@ -216,7 +213,6 @@ body {
       background-color: #36274ee8;
     }
 
-   
     .title-1 {
       color: #afb0ff;
     }
@@ -233,7 +229,6 @@ body {
       color: #ad82e6;
     }
 
-   
     .reflection-1 {
       background: rgba(99, 97, 190, 0.3);
     }
@@ -250,7 +245,6 @@ body {
       background: rgba(145, 97, 190, 0.3);
     }
 
-   
     .btn-1 {
       background-color: #9294ff;
     }
@@ -415,8 +409,6 @@ body {
       cursor: pointer;
     }
 
-
-
     @keyframes gradient-move {
       0% {
         background-size: 200% 200%;
@@ -447,7 +439,6 @@ body {
       overflow: hidden;
       margin-left: 0px;
     }
-
 
     .about-content {
       flex: 1;
@@ -518,7 +509,6 @@ body {
       min-height: 1em; 
     }
     
-    
     #typed-text-wrapper {
       display: inline-block;
       line-height: inherit;
@@ -577,7 +567,6 @@ body {
       position: relative; 
       z-index: 10;
     }
-    
   
     .hover-link {
       color: #ce9bff; 
@@ -768,9 +757,6 @@ body {
   display: none; 
 }
 
-
-
-
 .container {
   display: flex; 
   width: 100%; 
@@ -878,7 +864,6 @@ body {
   text-align: center;
 }
 
-
 #content-display {
   width: 64.6%; 
   height: 739px;
@@ -926,8 +911,6 @@ body {
   text-align: center;
 }
 
-
-
 #videogames p {
   margin: 5px 0;
   font-size: 1.2rem;
@@ -974,7 +957,6 @@ body {
   visibility: visible;
 }
 
-
 #musica {
   display: flex;
   justify-content: center;
@@ -998,7 +980,6 @@ body {
   z-index: 2;         
 }
 
-
 #spotify-iframe {
   cursor: auto;
 }
@@ -1009,7 +990,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 
 .parallax-image {
   width: 100%;
@@ -1024,7 +1004,6 @@ body {
   background-position: left -35px;
 }
 
-
 footer.socials {
   margin-top: 10px;
   background: linear-gradient(136deg, rgb(31, 44, 116) 0%, rgb(169, 123, 241) 52%, rgb(75, 17, 102));
@@ -1032,8 +1011,6 @@ footer.socials {
   width: 100%;
   z-index: 100;
 }
-
-
 
 ul.social-links {
   list-style: none;
@@ -1048,18 +1025,15 @@ ul.social-links li {
   display: inline-block;
 }
 
-
 ul.social-links li img {
   width: 40px;
   height: 40px;
   transition: transform 0.3s ease;
 }
 
-
 ul.social-links li a:hover img {
   transform: scale(1.1);
 }
-
 
 .space {
   height: 300px; 

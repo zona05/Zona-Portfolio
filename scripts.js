@@ -99,8 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
   });
 
-
-
 const links = document.querySelectorAll('a');
 
 links.forEach((link) => {
@@ -136,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const contentBoxes = document.querySelectorAll('.content-box');
   let currentActiveBox = null;
 
-  
   const showContent = (target) => {
     
     contentBoxes.forEach(box => {
@@ -160,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     currentActiveBox = targetBox;
   };
 
-  
   const updateActiveButton = (target) => {
     buttons.forEach(button => {
       button.classList.remove('active'); 
@@ -173,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       const target = button.getAttribute('data-target');
@@ -182,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  
   showContent('cinema');
   updateActiveButton('cinema'); 
 });
@@ -308,7 +302,6 @@ function horizontalLoop(items, config) {
   }
   return tl;
 }
-
 
 function scrollToSection(event, offset) {
   event.preventDefault(); 
