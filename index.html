@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive 3D Project Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://nextparticle.nextco.de/nextparticle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+  
+</head>
+<body>
+  <div class="loader-overlay">
+    <div class="wrapper">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <span>Loading</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-content">
+      <h1>zona <3</h1>
+      <nav>
+        <ul>
+          <li><a href="#" class="hover-effect" onclick="scrollToSection(event, 0)">Home</a></li>
+          <li><a href="#taste" class="hover-effect" onclick="scrollToSection(event, -43)">My Tastes</a></li>
+          <li><a href="#mis-proyecto" class="hover-effect" onclick="scrollToSection(event, 37)">My Projects</a></li>
+        </ul>        
+      </nav>
+    </div>
+  </header>
+  <div class="space2"></div>
+
+  <section id="about-me">
+    <div class="about-content">
+      <h2>
+        
+        <span id="typed-text-wrapper">
+          <span id="typed-text"></span>
+        </span> 
+        <br>
+        <span class="hover-text">Zona</span>
+        
+      </h2>
+      <p>
+        I'm a Computer Engineering student who loves solving problems and working on my own projects. I'm really passionate about tech and enjoy diving into new challenges. Outside of coding, I'm all about 
+        <a href="https://letterboxd.com/zona05/" target="_blank" class="hover-link" id="movies">
+          movies
+          <span class="icon letterboxd-icon">
+    
+            <img src="https://a.ltrbxd.com/logos/letterboxd-mac-icon.png" alt="Letterboxd Icon" width="100px" />
+          </span>
+        </a> 
+        and 
+        <a href="https://open.spotify.com/user/javier.alonsop9?si=a1512d05fbd449e1" target="_blank" class="hover-link" id="music">
+          music
+          <span class="icon spotify-icon">
+          
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify Icon" width="100px" />
+          </span>
+        </a> - they're a huge part of my life!
+      </p>
+      <p id="cur-lis">
+        I'm currently listening to:
+      </p>
+      <a href="https://spotify-github-profile.kittinanx.com/api/view?uid=javier.alonsop9&redirect=true">
+        <img id="spotify-profile" src="https://spotify-github-profile.kittinanx.com/api/view?uid=javier.alonsop9&cover_image=true&theme=novatorem&show_offline=false&background_color=121212&interchange=true&bar_color=4772d7&bar_color_cover=true" alt="Spotify Profile">
+      </a>
+    </div>
+    <div class="about-image">
+      <img
+        id="logo"
+        data-init-position="random"
+        data-init-direction="random"
+        src="images/logoparticle.png" alt="Logo">
+    </div>
+  </section>
+
+  <div class="space2"></div>
+  <div class="space2load" id="taste"></div>
+
+
+  <div class="container">
+  <section id="tastes">
+    <div class="taste-but" data-target="cinema">
+      <span class="cine-title">Cinema</span>
+    </div>
+    <div class="taste-but" data-target="musica">
+      <span class="music-title">Music</span>
+    </div>
+    <div class="taste-but" data-target="videogames">
+      <span class="games-title">Videogames</span>
+    </div>
+    <div class="taste-but" data-target="manga">
+      <span class="manga-title">Mangas</span>
+    </div>
+    <div class="taste-but" data-target="other">
+      <span class="other-title">Other</span>
+    </div>
+  </section>
+
+  <section id="content-display">
+    <div id="default-content" class="content-box" style="display: none;">
+    </div>
+    <div id="cinema" class="content-box">
+      <h1 class="center-title">My fav movies</h1>
+      <div class="movie-container">
+        <img class="movie-image" src="images/cure1997.gif" alt="Movie Image">
+        <p>Genres: Crime, Mystery, Thriller, Horror</p>
+      </div>
+      <div class="movie-container">
+        <img class="movie-image" src="images/the_holdovers.gif" alt="Movie Image">
+        <p>Genres: Comedy, Drama</p>
+      </div>
+      <div class="movie-container">
+        <img class="movie-image" src="images/stand_by_me.gif" alt="Movie Image">
+        <p>Genres: Comedy, Crime</p>
+      </div>
+      <div class="movie-container">
+        <img class="movie-image" src="images/after_hours.gif" alt="Movie Image">
+        <p>Genres: Thriller, Drama, Comedy</p>
+      </div>
+    </div>
+    <div id="musica" class="content-box">
+      <div class="spotify-widget">
+        <iframe 
+          src="https://open.spotify.com/embed/playlist/1iO6rrHCibWQGPtcYlbqbc?utm_source=generator" 
+          id="spotify-iframe" 
+          frameborder="0" 
+          allowtransparency="true" 
+          allow="encrypted-media">
+        </iframe>
+      </div>
+    </div>
+    <div id="videogames" class="content-box">
+      <h1 class="center-title">My fav videogames</h1>
+      <div class="game-container">
+        <img class="game-image" src="images/residentevil2.gif" alt="Game Image">
+        <p>Genres: Horror, Puzzles, Action</p>
+      </div>
+      <div class="game-container">
+        <img class="game-image" src="images/silenthill2.gif" alt="Game Image">
+        <p>Genres: Horror, Puzzles, Drama</p>
+      </div>
+      <div class="game-container">
+        <img class="game-image" src="images/outerwilds.gif" alt="Game Image">
+        <p>Genres: Adventure, Drama</p>
+      </div>
+      <div class="game-container">
+        <img class="game-image" src="images/hollowknight.gif" alt="Game Image">
+        <p>Genres: Metroidvania, Action</p>
+      </div>
+    </div>
+    <div id="manga" class="content-box">
+      <h1 class="center-title">My fav mangas</h1>
+      <div class="manga-container">
+        <img class="manga-image" src="images/theclimber.png" alt="Manga Image">
+        <p>Genres: Drama, Sports, Psychological</p>
+      </div>
+      <div class="manga-container">
+        <img class="manga-image" src="images/punpun.png" alt="Manga Image">
+        <p>Genres: Drama, Psychological, Slice of life</p>
+      </div>
+      <div class="manga-container">
+        <img class="manga-image" src="images/thekillerinside.png" alt="Manga Image">
+        <p>Genres: Mystery, Thriller</p>
+      </div>  
+      <div class="manga-container">
+        <img class="manga-image" src="images/bloodonthetracks.png" alt="Manga Image">
+        <p>Genres: Horror, Psychological, Drama</p>
+      </div>
+    </div>
+    <div id="other" class="content-box">
+      <h1 class="center-title">Things I love <3</h1>
+      <div class="other-container">
+        <img class="other-image" src="images/playingpiano.gif" alt="Other Image">
+        <p>I love playing the piano everyday :D</p>
+      </div>
+      <div class="other-container">
+        <img class="other-image" src="images/cats.gif" alt="Other Image">
+        <p>I can watch cute cat videos all day!!</p>
+      </div>
+      <div class="other-container">
+        <img class="other-image" src="images/nature.gif" alt="Other Image">
+        <p>I love the feeling of peace nature gives me</p>
+      </div>  
+      <div class="other-container">
+        <img class="other-image" src="images/exploreworld.gif" alt="Other Image">
+        <p>Getting to know other cultures and places is fascinating!</p>
+      </div>
+    </div>
+  </section>
+  
+</div>
+<div class="space2"></div>
+<div class="space2load" id="mis-proyecto"></div>
+
+
+  <div class="services-ticker-block" >
+    <div class="stb_line_single" >
+    <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+    </div>
+  </div>
+  <section id="mis-proyectos">
+    
+    <div class="card-container">
+      <div class="card card-1">
+        <div class="reflection reflection-1"></div>
+        <div class="card-content">
+          <img class="project-image" src="images/p2image.png" alt="Project Image">
+          <h2 class="card-title title-1">Dynamic Playlist</h2>
+          <div class="tags">
+            <span class="tag python">Python</span>
+            <span class="tag actions">Actions</span>
+          </div>
+          <p class="description">
+            A dynamic playlist that automatically updates every day with a random genre, using Python, GitHub Actions.
+          </p>
+            <a href="https://github.com/zona05/Spotify-Dynamic-List" target="_blank" ><button class="project-btn btn-1">Go to Repository</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card card-2">
+        <div class="reflection reflection-2"></div>
+        <div class="card-content">
+          <img class="project-image2" src="images/p3image.png" alt="Project Image">
+          <h2 class="card-title title-2">My own Wordle</h2>
+          <div class="tags">
+            <span class="tag html">HTML</span>
+            <span class="tag css">CSS</span>
+            <span class="tag javascript">Javascript</span>
+          </div>
+          <p class="description">
+            The classic website game Wordle with my own personal style.
+          </p>
+   
+            <a href="https://github.com/zona05/My-own-basic-Wordle" target="_blank" ><button class="project-btn btn-2">Go to Repository</button></a>
+ 
+        </div>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="card card-3">
+        <div class="reflection reflection-3"></div>
+        <div class="card-content">
+          <img class="project-image3" src="images/p4image.png" alt="Project Image">
+          <h2 class="card-title title-3">Airport Simulation</h2>
+          <div class="tags">
+            <span class="tag cpp">C++</span>
+          </div>
+          <p class="description">
+            An airport simulation with passengers, boxes, time presence, with stacks, queues, lists, and binary trees.
+          </p>
+
+            <a href="https://github.com/zona05/PL1_Estruc.Datos" target="_blank" ><button class="project-btn btn-3">Go to Repository</button></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="card card-4">
+        <div class="reflection reflection-4"></div>
+        <div class="card-content">
+          <img class="project-image4" src="images/p5image.png" alt="Project Image">
+          <h2 class="card-title title-4">JavaBNB</h2>
+          <div class="tags">
+            <span class="tag java">Java</span>
+          </div>
+          <p class="description">
+            JavaBNB is a Java application that simulates a hotel reservation system with its whole registration database and customization.
+          </p>
+  
+            <a href="https://github.com/TheMigui/ProyProgramacionprimero" target="_blank" ><button class="project-btn btn-4">Go to Repository</button></a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="services-ticker-block">
+    <div class="stb_line_single">
+        <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+           <a class="stb-item">
+          <span>My Projects</span>
+        </a>
+    </div>
+  </div>
+  <div class="space4"></div>
+  <div class="space3"></div>
+  <footer class="socials">
+    <div class="sociales">
+      <ul class="social-links">
+        <li><a href="https://github.com/zona05" target="_blank"><img src="images/github.svg" alt="Github"></a></li>
+        <li><a href="https://discordapp.com/users/329575440782065664" target="_blank"><img src="images/discord.svg" alt="Discord"></a></li>
+        <li><a href="https://x.com/catzonas" target="_blank"><img src="images/x.svg" alt="Twitter"></a></li>
+        <li><a href="https://instagram.com/javier.omg" target="_blank"><img src="images/insgagram.svg" alt="Instagram"></a></li>
+        <li><a href="https://steamcommunity.com/id/propia" target="_blank"><img src="images/steam.svg" alt="Steam"></a></li>
+      </ul>
+    </div>
+  </footer>
+  <footer class="parallax-container">
+    <div class="parallax-image"></div>
+  </footer>
+<script src="scripts.js"></script>
+</body>
+</html>
