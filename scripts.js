@@ -99,6 +99,55 @@ document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
   });
 
+  const cursor = document.getElementById('custom-cursor');
+  const trailContainer = document.getElementById('trail');
+  const trailPoints = [];
+  const maxPoints = 20;
+  let idleTimeout;
+  
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  const path = document.createElementNS(svgNS, "path");
+  path.setAttribute("class", "path");
+  svg.appendChild(path);
+  trailContainer.appendChild(svg);
+  
+  document.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+  
+    cursor.style.left = `${x}px`;
+    cursor.style.top = `${y}px`;
+  
+    trailPoints.push([x, y]);
+    if (trailPoints.length > maxPoints) {
+      trailPoints.shift();
+    }
+  
+    const pathData = trailPoints.map((point, i) => {
+      const [px, py] = point;
+      return i === 0 ? `M${px},${py}` : `L${px},${py}`;
+    }).join(" ");
+  
+    path.setAttribute("d", pathData);
+  
+    clearTimeout(idleTimeout);
+    idleTimeout = setTimeout(() => fadeTrail(), 100);
+  });
+
+function fadeTrail() {
+  if (trailPoints.length > 0) {
+    trailPoints.shift(); 
+    const pathData = trailPoints.map((point, i) => {
+      const [px, py] = point;
+      return i === 0 ? `M${px},${py}` : `L${px},${py}`;
+    }).join(" ");
+    path.setAttribute("d", pathData);
+
+    requestAnimationFrame(fadeTrail);
+  }
+}
+
 const links = document.querySelectorAll('a');
 
 links.forEach((link) => {
